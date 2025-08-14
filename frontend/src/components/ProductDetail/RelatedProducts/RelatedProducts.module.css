@@ -1,0 +1,257 @@
+.relatedProductsContainer {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+}
+
+.sectionHeader {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.sectionHeader h2 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.sectionHeader p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.productsWrapper {
+  position: relative;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navButton:hover {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.navButton:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.navLeft {
+  left: -25px;
+}
+
+.navRight {
+  right: -25px;
+}
+
+.productsScroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.productsScroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.productsGrid {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+  min-width: max-content;
+}
+
+.productWrapper {
+  flex: 0 0 280px;
+  height: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .productWrapper {
+    flex: 0 0 250px;
+  }
+  
+  .productsGrid {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .relatedProductsContainer {
+    padding: 1.5rem;
+  }
+  
+  .sectionHeader {
+    margin-bottom: 1.5rem;
+  }
+  
+  .sectionHeader h2 {
+    font-size: 1.25rem;
+  }
+  
+  .navButton {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .navLeft {
+    left: -20px;
+  }
+  
+  .navRight {
+    right: -20px;
+  }
+  
+  .productWrapper {
+    flex: 0 0 220px;
+  }
+  
+  .productsGrid {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .relatedProductsContainer {
+    padding: 1rem;
+    margin: 0 -1rem;
+    border-radius: 0;
+  }
+  
+  .navButton {
+    display: none; /* Hide navigation buttons on very small screens */
+  }
+  
+  .productWrapper {
+    flex: 0 0 200px;
+  }
+  
+  .productsGrid {
+    gap: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .productsScroll {
+    margin: 0 -1rem;
+  }
+}
+
+/* Custom scrollbar for desktop */
+@media (min-width: 769px) {
+  .productsScroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+  }
+  
+  .productsScroll::-webkit-scrollbar {
+    display: block;
+    height: 6px;
+  }
+  
+  .productsScroll::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    border-radius: 3px;
+  }
+  
+  .productsScroll::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+  }
+  
+  .productsScroll::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+  }
+}
+
+/* Smooth scroll behavior */
+.productsScroll {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+.navButton:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.productWrapper:focus-within {
+  transform: translateY(-2px);
+  transition: transform 0.3s ease;
+}
+
+/* Animation for product cards */
+.productWrapper {
+  transition: transform 0.3s ease;
+}
+
+.productWrapper:hover {
+  transform: translateY(-4px);
+}
+
+/* Loading state (if needed) */
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  color: var(--text-secondary);
+}
+
+/* Empty state */
+.emptyState {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--text-secondary);
+}
+
+.emptyState h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .navButton {
+    border-width: 3px;
+  }
+  
+  .navButton:hover {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .navButton,
+  .productWrapper {
+    transition: none;
+  }
+  
+  .productsScroll {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,402 @@
+.errorBoundary {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.errorBoundary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(239, 68, 68, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.errorContent {
+  background: white;
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 2px solid #fee2e2;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  animation: errorAppear 0.8s ease-out;
+}
+
+@keyframes errorAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.errorContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ef4444, #f97316, #ef4444);
+  border-radius: 16px 16px 0 0;
+  animation: errorGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes errorGlow {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
+.errorContent h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.errorContent p {
+  font-size: 1.2rem;
+  color: #6b7280;
+  margin: 0 0 2rem 0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.errorDetails {
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.errorDetails summary {
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #374151;
+  transition: all 0.3s ease;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.errorDetails summary:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.errorDetails summary::marker {
+  display: none;
+}
+
+.errorDetails summary::after {
+  content: '▼';
+  color: #9ca3af;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.errorDetails[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.errorDetails pre {
+  background: #1f2937;
+  color: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 1rem 0 0 0;
+  overflow-x: auto;
+  border: 2px solid #374151;
+  max-height: 200px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.errorDetails pre::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.errorDetails pre::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.errorDetails pre::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 4px;
+}
+
+.errorDetails pre::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.refreshButton {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.refreshButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.refreshButton:hover::before {
+  left: 100%;
+}
+
+.refreshButton:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+}
+
+.refreshButton:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Gaming Store Themed Elements */
+.errorContent::after {
+  content: '⚠️';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 3rem;
+  opacity: 0.1;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* GGG Branding Elements */
+.errorContent h2::before {
+  content: '🎮';
+  margin-right: 0.5rem;
+  font-size: 2rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Error Type Specific Styling */
+.errorContent[data-error-type="network"] {
+  border-color: #fbbf24;
+}
+
+.errorContent[data-error-type="network"]::before {
+  background: linear-gradient(90deg, #f59e0b, #d97706, #f59e0b);
+}
+
+.errorContent[data-error-type="auth"] {
+  border-color: #f87171;
+}
+
+.errorContent[data-error-type="auth"]::before {
+  background: linear-gradient(90deg, #ef4444, #dc2626, #ef4444);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .errorBoundary {
+    padding: 1rem;
+  }
+
+  .errorContent {
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .errorContent h2 {
+    font-size: 2rem;
+  }
+
+  .errorContent p {
+    font-size: 1rem;
+  }
+
+  .refreshButton {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  .errorDetails pre {
+    font-size: 0.8rem;
+    padding: 1rem;
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .errorContent {
+    padding: 1.5rem;
+  }
+
+  .errorContent h2 {
+    font-size: 1.75rem;
+  }
+
+  .errorContent h2::before {
+    font-size: 1.5rem;
+  }
+
+  .refreshButton {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .errorDetails summary {
+    padding: 0.875rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .errorDetails pre {
+    font-size: 0.75rem;
+    max-height: 120px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .errorContent {
+    border-width: 3px;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+  }
+
+  .errorDetails summary {
+    border-width: 3px;
+  }
+
+  .refreshButton {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .errorContent,
+  .refreshButton,
+  .errorDetails summary,
+  .errorContent::after,
+  .errorContent h2::before {
+    animation: none;
+    transition-duration: 0.01ms;
+  }
+
+  .refreshButton:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .errorBoundary {
+    background: white;
+    min-height: auto;
+  }
+
+  .errorBoundary::before {
+    display: none;
+  }
+
+  .errorContent {
+    box-shadow: none;
+    border: 2px solid #000;
+    padding: 2rem;
+  }
+
+  .errorContent::before,
+  .errorContent::after {
+    display: none;
+  }
+
+  .refreshButton {
+    display: none;
+  }
+
+  .errorDetails pre {
+    background: #f5f5f5;
+    color: #000;
+    border: 1px solid #ccc;
+  }
+}
+
+/* Focus management for accessibility */
+.errorContent:focus-within .refreshButton {
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+}
+
+/* Custom scrollbar for error details */
+.errorContent {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.errorContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+.errorContent::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.errorContent::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.errorContent::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

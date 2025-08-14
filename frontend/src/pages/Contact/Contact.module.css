@@ -1,0 +1,33 @@
+.contactPage {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.contactMainSection {
+  padding: 4rem 0;
+  background: var(--bg-secondary);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 968px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .contactMainSection {
+    padding: 2rem 0;
+  }
+}

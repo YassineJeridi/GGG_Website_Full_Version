@@ -1,0 +1,32 @@
+.homePage {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.heroSection {
+  margin-bottom: 0;
+}
+
+.flashSaleSection,
+.suggestedSection,
+.pcBuilderSection,
+.partnersSection {
+  padding: 4rem 0;
+}
+
+.flashSaleSection {
+  background: var(--bg-secondary);
+}
+
+.pcBuilderSection {
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+}
+
+@media (max-width: 768px) {
+  .flashSaleSection,
+  .suggestedSection,
+  .pcBuilderSection,
+  .partnersSection {
+    padding: 2rem 0;
+  }
+}

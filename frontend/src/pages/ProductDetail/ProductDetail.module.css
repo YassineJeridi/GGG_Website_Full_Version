@@ -1,0 +1,143 @@
+.productDetailPage {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background-color: var(--bg-primary);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+}
+
+.loadingContainer p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 2rem;
+}
+
+.errorContent {
+  text-align: center;
+  background-color: var(--bg-secondary);
+  padding: 3rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  max-width: 500px;
+}
+
+.errorContent h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.errorContent p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.errorActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.retryButton,
+.backButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retryButton {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.retryButton:hover {
+  background-color: #0056b3;
+}
+
+.backButton {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.backButton:hover {
+  background-color: var(--hover-color);
+}
+
+.productSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.imageSection {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.infoSection {
+  /* Content flows naturally */
+}
+
+.specsSection,
+.reviewsSection,
+.relatedSection {
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 1024px) {
+  .productSection {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .imageSection {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .productDetailPage {
+    padding: 1rem 0;
+  }
+  
+  .productSection {
+    gap: 1.5rem;
+  }
+  
+  .specsSection,
+  .reviewsSection,
+  .relatedSection {
+    margin-bottom: 2rem;
+  }
+  
+  .errorActions {
+    flex-direction: column;
+  }
+}

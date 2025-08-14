@@ -1,0 +1,58 @@
+.quantitySelector {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.quantityButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg-secondary);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: var(--text-primary);
+}
+
+.quantityButton:hover:not(:disabled) {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.quantityButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantityInput {
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  border: none;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.quantityInput:focus {
+  outline: none;
+  background-color: var(--bg-secondary);
+}
+
+/* Remove spinner arrows */
+.quantityInput::-webkit-outer-spin-button,
+.quantityInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantityInput[type=number] {
+  -moz-appearance: textfield;
+}

@@ -1,0 +1,147 @@
+.productsPage {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background-color: var(--bg-primary);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.pageHeader h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.pageHeader p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ✅ NEW: Mobile-only search container */
+.mobileSearchContainer {
+  display: none; /* Hidden by default (desktop) */
+  margin-bottom: 2rem;
+}
+
+.productsContent {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.mainContent {
+  min-width: 0; /* Prevents grid overflow */
+}
+
+@media (max-width: 1024px) {
+  .productsContent {
+    grid-template-columns: 250px 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .productsPage {
+    padding: 1rem 0;
+  }
+  
+  .pageHeader {
+    margin-bottom: 2rem;
+  }
+  
+  .pageHeader h1 {
+    font-size: 2rem;
+  }
+
+  /* ✅ UPDATED: Show search bar only on mobile */
+  .mobileSearchContainer {
+    display: block; /* Show on mobile */
+    margin-bottom: 1.5rem;
+  }
+  
+  .productsContent {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .sidebar {
+    position: static;
+  }
+}
+
+/* Add these to your existing CSS */
+.errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 2rem;
+}
+
+.errorContent {
+  text-align: center;
+  background-color: var(--bg-secondary);
+  padding: 3rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  max-width: 500px;
+}
+
+.errorContent h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.errorContent p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.retryButton {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.retryButton:hover {
+  background-color: #0056b3;
+}
+
+.initialLoadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 1rem;
+}
+
+.initialLoadingContainer p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
